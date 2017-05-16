@@ -1,0 +1,26 @@
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Y              Y                       Y      Z      Y     P
+Y  YYYYYYYYYY  Y G     CCCCCN          Y             Y     P
+Y  YZ       Y  Y     CCNCCCNNCY        Y   G     G   Y     P
+Y  YYYY     Y  Y    CCCCCCCCCCCCC      Y             Y     P
+Y  YYYY     Y  Y      BB    BB         Y   YYQQQYY   Y     P
+Y           Y  Y                       Y F Y     Y   Y     P
+YYYYYYYYYWWWY  Y                       YYYYY     YYYYY     P
+YGGG        Y  Y                                           P
+YYYYYYYYYYYYY  Y                                           P
+P                                           SS             P
+P                                          SSSS            P
+P    SSSS                                 SSSSSS           P
+P   SSSSSS                               SSSSSSSS          P
+P  SSSSSSSS                 KK          SSSSSSSSSS         P
+P SSSSSSSSSS                KKKK         SSSSSSSS          P
+P  SSSSSSSS             KK   KKKK         SSWWSS           P
+P   SSSSSS             KKKK   KKKKK        SWWS            P
+P    SWWS             KKKKKK   KKKKK        WW             P
+P     WW            KKKKKKKKK    KKKK       WW             P
+P     WW      F   KKKKKKKKKKKK      KK      WW             P
+P     WW        KKKKKKKKKKKK    KK   KK                    P
+P     WW       KKKKKKKKKKGG  KKKKKK   KK                   P
+P             KKKKKKKKKKKKKKKKKKKKKK GG KKK                P
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
