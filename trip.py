@@ -3,55 +3,50 @@ import sys, tty, termios
 import csv
 
 
-def open_file(old_x, old_y):
+def open_file(hero_x, hero_y):
 
 
     column = []
-    mapa=[]
+    mapa = []
     text = open('firstmap.txt').readlines()
     for line in text:
-       for char in line:
-           column.append(char)
-       mapa.append(column)
-       column = []
-    mapa[old_x][old_y] = "@"
+        for char in line:
+            column.append(char)
+        mapa.append(column)
+        column = []
+    mapa[hero_x][hero_y] = "@"
 
-    #print(mapa)
     return mapa
 
 
-def movement(old_x,old_y,mapa):
+def movement(hero_x,hero_y,mapa):
 
 
 
     wsad = getch()
     exceptions = ['X', 's', 'w', 'o', '|', '_', 'F', 'Y', 'S', 'C', 'B', 'N', '~', 'W', 'Q']
     if wsad =='a':
-        if mapa[old_x][old_y-1] not in exceptions:
-            old_y=old_y-1
+        if mapa[hero_x][hero_y-1] not in exceptions:
+            hero_y=hero_y-1
 
     if wsad == 'd':
-        if mapa[old_x][old_y+1] not in exceptions:
-            old_y=old_y+1
+        if mapa[hero_x][hero_y+1] not in exceptions:
+            hero_y=hero_y+1
 
     if wsad == 'w':
-        if mapa[old_x-1][old_y] not in exceptions:
-            old_x=old_x-1
+        if mapa[hero_x-1][hero_y] not in exceptions:
+            hero_x=hero_x-1
 
     if wsad == 's':
-        if mapa[old_x+1][old_y] not in exceptions:
-            old_x=old_x+1
+        if mapa[hero_x+1][hero_y] not in exceptions:
+            hero_x=hero_x+1
 
     if wsad =='q':
         sys.exit()
 
-    mapa[old_x][old_y] = "@"
-    print(mapa[old_x][old_y])
-    os.system('clear')
-    print_board(mapa)
 
 
-    return old_x, old_y, mapa
+    return hero_x, hero_y, mapa
 
 
 
@@ -101,7 +96,7 @@ def get_coloured_sign(sign):
 
 def print_board(mapa):
    """Prints board."""
-   os. system("clear")
+   #os. system("clear")
    for row in mapa:
        for sign in row:
            print(('').join(get_coloured_sign(sign)), end="")
@@ -140,21 +135,23 @@ def print_table(inventory): #displays inventory in a well-organized table
 
 
 def main():
-    old_x=10
-    old_y=10
+    hero_x=10
+    hero_y=10
     inventory = {"coffee": 0, "umbrella":0, }
     added_items = []
-    mapa = open_file(old_x, old_y)
+    mapa = open_file(hero_x, hero_y)
 
 
 
     while True:
-        #os.system('clear')
+
+        os.system('clear')
         print_board(mapa)
         inventory = add_to_inventory(inventory, added_items)
         print_table(inventory)
-        old_x, old_y, mapa = movement(old_x,old_y,mapa)
-        mapa = open_file(old_x, old_y)
+        hero_x, hero_y, mapa = movement(hero_x,hero_y,mapa)
+        old_map=mapa
+        mapa = open_file(hero_x, hero_y)
 
 
 if __name__ == '__main__':
