@@ -98,7 +98,7 @@ lightblue='\033[94m'
 pink='\033[95m'
 lightcyan='\033[96m'
 
-sign_colours = {"s": green, "w":orange, "o": darkgrey, "☔": yellow, "_": red, "|": red, "☕": lightred}
+sign_colours = {"s": green, "S": green, "w":orange, "W":orange, "o": darkgrey, "☔": yellow, "_": red, "|": red, "☕": lightred}
 
 def get_coloured_sign(sign):
     if sign in sign_colours:
