@@ -25,6 +25,7 @@ def open_current_map(hero_x, hero_y, current_map,mapa):
 
     return current_map
 
+
 def write_current_map(current_map):
     return
 
@@ -34,7 +35,9 @@ def movement(hero_x,hero_y,current_map, inventory):
        and later calls function print(board)"""
 
     wsad = getch()
+
     exceptions = ['X', 's', 'w', 'o', '|', '_', 'Y', 'S', 'C', 'B', 'N', '~', 'W', 'Q', '▣']
+
     if wsad =='a':
         if current_map[hero_x][hero_y-1] not in exceptions:
             hero_y=hero_y-1
@@ -50,6 +53,7 @@ def movement(hero_x,hero_y,current_map, inventory):
                 for i in item:
                     if i == "☕":
                         inventory[i] -= 1
+
 
 
     if wsad == 'w':
@@ -71,9 +75,11 @@ def movement(hero_x,hero_y,current_map, inventory):
     if wsad =='q':
         sys.exit()
 
+
     print_board_and_hero(current_map,hero_x,hero_y)
 
     return hero_x, hero_y, current_map, inventory
+
 
 
 def getch():
@@ -125,6 +131,7 @@ def get_coloured_sign(sign):
 
 def print_board_and_hero(current_map,hero_x,hero_y):
     """Function prints board with colors and prints hero"""
+
     os. system("clear")
 
 
@@ -132,6 +139,7 @@ def print_board_and_hero(current_map,hero_x,hero_y):
         for y, sign in enumerate(row):
             if y == hero_y and  x ==  hero_x:
                 print("@", end="")
+
 
             else:
                 print(('').join(get_coloured_sign(sign)), end="")
@@ -177,6 +185,8 @@ def add_to_inventory(inventory, hero_x, hero_y, current_map):
 
     return inventory, current_map
 
+         
+
 def print_table(inventory): #displays inventory in a well-organized table
         
 
@@ -195,6 +205,7 @@ def print_table(inventory): #displays inventory in a well-organized table
 
 
 def main():
+
     hero_x=10
     hero_y=10
     inventory = {"☕": 100, "☔":0, "⓵":0, "☎":0, "⁕":0 }
