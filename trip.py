@@ -15,41 +15,24 @@ def open_file(hero_x,hero_y):
         mapa.append(column)
         column = []
 
-    mapa[hero_x][hero_y] = "@"
     current_map = mapa
 
     return mapa, current_map
 
-def open_current_map(hero_x, hero_y, current_map):
+def open_current_map(hero_x, hero_y, current_map,mapa):
 
-    column = []
-    mapa = []
-    text = open('current_map.txt').readlines()
-    for line in text:
-        for char in line:
-            column.append(char)
-        mapa.append(column)
-        column = []
-
-    #current_map[hero_x][hero_y] = "@"
+    current_map=mapa
 
     return current_map
 
 def write_current_map(current_map):
-    #current_map = open("current_map.txt", "w")
-    for i in current_map:
-        current_map.write(current_map)
-    current_map.close()
-
-    current_map = open("current_map.txt", "r")
-    current_map.close()
+    return
 
 
 def movement(hero_x,hero_y,current_map):
 
-    #current_map[hero_x][hero_y] = "@"
 
-    open_current_map(hero_x,hero_y,current_map)
+
 
     print(hero_x,hero_y)
     wsad = getch()
@@ -76,7 +59,6 @@ def movement(hero_x,hero_y,current_map):
 
     print_board(current_map,hero_x,hero_y)
 
-    write_current_map(current_map)
 
 
     return hero_x, hero_y, current_map
@@ -129,29 +111,32 @@ def get_coloured_sign(sign):
 
 def print_board(current_map,hero_x,hero_y):
     """Prints board."""
-    #os. system("clear")
-
-    #current_map[hero_x][hero_y] = "@"
-
-    for row in current_map:
-        for sign in row:
-            print(('').join(get_coloured_sign(sign)), end="")
-
-def add_to_inventory(inventory, hero_x, hero_y, mapa_copy, mapa): # Adds to the inventory dictionary a list
+    os. system("clear")
 
 
+    for x, row in enumerate(current_map):
+        for y, sign in enumerate(row):
+            if y == hero_y and  x ==  hero_x:
+                print("@", end="")
+            else:
+                print(('').join(get_coloured_sign(sign)), end="")
+#.
 
-    if mapa_copy[hero_x][hero_y] == "G":
+def add_to_inventory(inventory, hero_x, hero_y, current_map): # Adds to the inventory dictionary a list
+
+
+
+    if current_map[hero_x][hero_y] == "G":
         for item in inventory:
             for i in item:
                 if i == "G":
                     inventory[i] += +1
-                    mapa[hero_x][hero_y] = '.'
+                    current_map[hero_x][hero_y] = '.'
                     print("OK")
-                    print(mapa[hero_x][hero_y])
+                    print(current_map[hero_x][hero_y])
 
 
-    return inventory, mapa
+    return inventory, current_map
 
 def print_table(inventory): #displays inventory in a well-organized table
 
@@ -187,15 +172,15 @@ def main():
 
     while True:
 
-        mapa = open_file(hero_x,hero_y)
+        current_mapa = open_file(hero_x,hero_y)
 
         os.system('clear')
         print_board(current_map,hero_x,hero_y)
-        add_to_inventory(inventory, hero_x, hero_y, mapa_copy, mapa)
+        add_to_inventory(inventory, hero_x, hero_y, current_map)
         print_table(inventory)
-        hero_x, hero_y, mapa = movement(hero_x,hero_y, current_map)
+        hero_x, hero_y, current_map = movement(hero_x,hero_y, current_map)
         old_map=mapa
-        #mapa = open_file(hero_x, hero_y)
+        current_mapa = open_current_map(hero_x, hero_y,current_map,mapa)
 
 
 if __name__ == '__main__':
