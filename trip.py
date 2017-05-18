@@ -3,7 +3,7 @@ import sys, tty, termios
 import csv
 
 
-def open_file(hero_x, hero_y):
+def open_file(hero_x,hero_y):
 
 
     column = []
@@ -14,39 +14,72 @@ def open_file(hero_x, hero_y):
             column.append(char)
         mapa.append(column)
         column = []
+
     mapa[hero_x][hero_y] = "@"
+    current_map = mapa
 
-    return mapa
+    return mapa, current_map
+
+def open_current_map(hero_x, hero_y, current_map):
+
+    column = []
+    mapa = []
+    text = open('current_map.txt').readlines()
+    for line in text:
+        for char in line:
+            column.append(char)
+        mapa.append(column)
+        column = []
+
+    #current_map[hero_x][hero_y] = "@"
+
+    return current_map
+
+def write_current_map(current_map):
+    #current_map = open("current_map.txt", "w")
+    for i in current_map:
+        current_map.write(current_map)
+    current_map.close()
+
+    current_map = open("current_map.txt", "r")
+    current_map.close()
 
 
-def movement(hero_x,hero_y,mapa):
+def movement(hero_x,hero_y,current_map):
 
+    #current_map[hero_x][hero_y] = "@"
 
+    open_current_map(hero_x,hero_y,current_map)
 
+    print(hero_x,hero_y)
     wsad = getch()
-    exceptions = ['X', 's', 'w', 'o', '|', '_', 'F', 'Y', 'S', 'C', 'B', 'N', '~', 'W', 'Q']
+    exceptions = ['X', 's', 'w', 'o', '|', '_', 'Y', 'S', 'C', 'B', 'N', '~', 'W', 'Q']
     if wsad =='a':
-        if mapa[hero_x][hero_y-1] not in exceptions:
+        if current_map[hero_x][hero_y-1] not in exceptions:
             hero_y=hero_y-1
 
     if wsad == 'd':
-        if mapa[hero_x][hero_y+1] not in exceptions:
+        if current_map[hero_x][hero_y+1] not in exceptions:
             hero_y=hero_y+1
 
+
     if wsad == 'w':
-        if mapa[hero_x-1][hero_y] not in exceptions:
+        if current_map[hero_x-1][hero_y] not in exceptions:
             hero_x=hero_x-1
 
     if wsad == 's':
-        if mapa[hero_x+1][hero_y] not in exceptions:
+        if current_map[hero_x+1][hero_y] not in exceptions:
             hero_x=hero_x+1
 
     if wsad =='q':
         sys.exit()
 
+    print_board(current_map,hero_x,hero_y)
+
+    write_current_map(current_map)
 
 
-    return hero_x, hero_y, mapa
+    return hero_x, hero_y, current_map
 
 
 
@@ -94,22 +127,31 @@ def get_coloured_sign(sign):
     else:
         return sign
 
-def print_board(mapa):
-   """Prints board."""
-   #os. system("clear")
-   for row in mapa:
-       for sign in row:
-           print(('').join(get_coloured_sign(sign)), end="")
+def print_board(current_map,hero_x,hero_y):
+    """Prints board."""
+    #os. system("clear")
 
-def add_to_inventory(inventory, added_items): # Adds to the inventory dictionary a list
+    #current_map[hero_x][hero_y] = "@"
 
-    for item in added_items:
-        if item in inventory:
-            inventory[item] += 1
-        else:
-            inventory[item] = 1
-    return inventory
+    for row in current_map:
+        for sign in row:
+            print(('').join(get_coloured_sign(sign)), end="")
 
+def add_to_inventory(inventory, hero_x, hero_y, mapa_copy, mapa): # Adds to the inventory dictionary a list
+
+
+
+    if mapa_copy[hero_x][hero_y] == "G":
+        for item in inventory:
+            for i in item:
+                if i == "G":
+                    inventory[i] += +1
+                    mapa[hero_x][hero_y] = '.'
+                    print("OK")
+                    print(mapa[hero_x][hero_y])
+
+
+    return inventory, mapa
 
 def print_table(inventory): #displays inventory in a well-organized table
 
@@ -135,23 +177,25 @@ def print_table(inventory): #displays inventory in a well-organized table
 
 
 def main():
+
+    found_items = ['G', 'F']
     hero_x=10
     hero_y=10
-    inventory = {"coffee": 0, "umbrella":0, }
-    added_items = []
-    mapa = open_file(hero_x, hero_y)
-
-
+    inventory = {"coffee": 0, "umbrella":0, "G":0, "F": 0 }
+    mapa, current_map = open_file(hero_x,hero_y)
+    mapa_copy = mapa[:]
 
     while True:
 
+        mapa = open_file(hero_x,hero_y)
+
         os.system('clear')
-        print_board(mapa)
-        inventory = add_to_inventory(inventory, added_items)
+        print_board(current_map,hero_x,hero_y)
+        add_to_inventory(inventory, hero_x, hero_y, mapa_copy, mapa)
         print_table(inventory)
-        hero_x, hero_y, mapa = movement(hero_x,hero_y,mapa)
+        hero_x, hero_y, mapa = movement(hero_x,hero_y, current_map)
         old_map=mapa
-        mapa = open_file(hero_x, hero_y)
+        #mapa = open_file(hero_x, hero_y)
 
 
 if __name__ == '__main__':
