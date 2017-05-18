@@ -1,26 +1,26 @@
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-X                       ssss       o            o          p
-X                      ssssss     o            o           p
-X          ☔          ssssssss   o            o            p
-X                      ssssss   o            o             p
-X                       ssss   o            o              p
-X                        ww   o            o               p
-X                        ww  o            o         s      p
-X               ssss     ww o            o         sss     p
-X              ssssss      o            o         sssss    p
-X             ssssssss    o            o         sssssss   p
-X             ssssssss   o            o         sssssssss  p
-X              ssssss   o            o           sssssss   p
-X   ssss         ww    o            o           sssssssss  p
-X  ssssss        ww   o            o          sssssssssssssp
-X ssssssss       ww  o            o             sssssssss  p
-Xssssssssss      ww o            o               sssssss   p
-Xssssssssss        o            o                  www     p
-X ssssssss        o            o                   www     p
-X  ssssss        o            o      __________    www     p
-X    ww         o            o       |        |    www	   p
-X    ww        o            o        |        |    www     p
-X    ww       o            o   ☕     |        |    www     p
-X    ww      o     	  o          |        |    www     p
+X.......⓵...............ssss.......o............o.....⓵....p
+X..☎...................ssssss.....o............o...........p
+X..........☔..........ssssssss...o............o............p
+X......................ssssss...o............o.....⁕.......p
+X.......................ssss...o............o..............p
+X...☕....................ww...o............o...........☎...p
+X........................ww..o............o.........s......p
+X...............ssss.....ww.o............o.........sss.....p
+X..............ssssss......o............o.........sssss....p
+X...☔.........ssssssss....o............o.........sssssss...p
+X.............ssssssss..▣▣▣▣▣▣▣▣▣▣▣▣▣▣..........sssssssss..p
+X..............ssssss.........⓵..........⓵.......sssssss...p
+X...ssss.........ww....▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣..........sssssssss..p
+X..ssssss........ww...o............o..........sssssssssssssp
+X.ssssssss....⓵..ww..o............o.............sssssssss..p
+Xssssssssss......ww.o............o...............sssssss...p
+Xssssssssss........o............o........☔.........www.....p
+X.ssssssss....⁕...o............o...⁕...............www.....p
+X..ssssss........o............o....................www.....p
+X....ww.........o............o.....................www	...p
+X....ww........o............o......................www.....p
+X....ww.......o............o.......................www.....p
+X....ww...☎..o.....	..o...⓵..............☕.....www.....p
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
