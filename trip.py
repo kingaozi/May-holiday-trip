@@ -3,51 +3,77 @@ import sys, tty, termios
 import csv
 
 
-def open_file(hero_x, hero_y):
+def open_file(hero_x,hero_y):
 
 
     column = []
     mapa = []
-    text = open('firstmap.txt').readlines()
+    text = open('secondmap.txt').readlines()
     for line in text:
         for char in line:
             column.append(char)
         mapa.append(column)
         column = []
-    mapa[hero_x][hero_y] = "@"
 
-    return mapa
+    current_map = mapa
+
+    return mapa, current_map
+
+def open_current_map(hero_x, hero_y, current_map,mapa):
+
+    current_map=mapa
+
+    return current_map
+
+def write_current_map(current_map):
+    return
 
 
-def movement(hero_x,hero_y,mapa):
-
-
+def movement(hero_x,hero_y,current_map, inventory):
+    """Function that allows you to move around, not to enter banned signs and change the energy value, 
+       and later calls function print(board)"""
 
     wsad = getch()
-    exceptions = ['X', 's', 'w', 'o', '|', '_', 'F', 'Y', 'S', 'C', 'B', 'N', '~', 'W', 'Q']
+    exceptions = ['X', 's', 'w', 'o', '|', '_', 'Y', 'S', 'C', 'B', 'N', '~', 'W', 'Q', '▣']
     if wsad =='a':
-        if mapa[hero_x][hero_y-1] not in exceptions:
+        if current_map[hero_x][hero_y-1] not in exceptions:
             hero_y=hero_y-1
+            for item in inventory:
+                for i in item:
+                    if i == "☕":
+                        inventory[i] -= 1
 
     if wsad == 'd':
-        if mapa[hero_x][hero_y+1] not in exceptions:
+        if current_map[hero_x][hero_y+1] not in exceptions:
             hero_y=hero_y+1
+            for item in inventory:
+                for i in item:
+                    if i == "☕":
+                        inventory[i] -= 1
+
 
     if wsad == 'w':
-        if mapa[hero_x-1][hero_y] not in exceptions:
+        if current_map[hero_x-1][hero_y] not in exceptions:
             hero_x=hero_x-1
+            for item in inventory:
+                for i in item:
+                    if i == "☕":
+                        inventory[i] -= 1
 
     if wsad == 's':
-        if mapa[hero_x+1][hero_y] not in exceptions:
+        if current_map[hero_x+1][hero_y] not in exceptions:
             hero_x=hero_x+1
+            for item in inventory:
+                for i in item:
+                    if i == "☕":
+                        inventory[i] -= 1
 
     if wsad =='q':
         sys.exit()
 
+    print_board_and_hero(current_map,hero_x,hero_y)
 
-
-    return hero_x, hero_y, mapa
-
+    return hero_x, hero_y, current_map, inventory
 
 
 def getch():
@@ -86,72 +112,105 @@ lightblue='\033[94m'
 pink='\033[95m'
 lightcyan='\033[96m'
 
-sign_colours = {"F": cyan, "s": green, "S": green, "w":orange, "W":orange, "o": darkgrey, "☔": yellow, "_": red, "|": red, "☕": lightred}
+sign_colours = {"s": green, "S": green, "w":orange, "W":orange, "o": blue, "☔": yellow, "☕": lightred,
+                "⓵": yellow,"☎": lightgreen, "⁕": pink, "▣": black}
+
 def get_coloured_sign(sign):
+    """Function returns coloured sign"""
     if sign in sign_colours:
         return sign_colours[sign] + sign + ENDC
 
     else:
         return sign
 
-def print_board(mapa):
-   """Prints board."""
-   #os. system("clear")
-   for row in mapa:
-       for sign in row:
-           print(('').join(get_coloured_sign(sign)), end="")
+def print_board_and_hero(current_map,hero_x,hero_y):
+    """Function prints board with colors and prints hero"""
+    os. system("clear")
 
-def add_to_inventory(inventory, added_items): # Adds to the inventory dictionary a list
 
-    for item in added_items:
-        if item in inventory:
-            inventory[item] += 1
-        else:
-            inventory[item] = 1
-    return inventory
+    for x, row in enumerate(current_map):
+        for y, sign in enumerate(row):
+            if y == hero_y and  x ==  hero_x:
+                print("@", end="")
 
+            else:
+                print(('').join(get_coloured_sign(sign)), end="")
+
+def add_to_inventory(inventory, hero_x, hero_y, current_map): 
+
+    """Function adds to the inventory collected items"""
+
+    if current_map[hero_x][hero_y] == "⓵" :
+        for item in inventory:
+            for i in item:
+                if i == "⓵":
+                    inventory[i] += +1
+                    current_map[hero_x][hero_y] = '.'
+    
+    if current_map[hero_x][hero_y] == "☕":
+        for item in inventory:
+            for i in item:
+                if i == "☕":
+                    inventory[i] += 100
+                    current_map[hero_x][hero_y] = '.'
+
+    if current_map[hero_x][hero_y] == "☎":
+        for item in inventory:
+            for i in item:
+                if i == "☎":
+                    inventory[i] += 2
+                    current_map[hero_x][hero_y] = '.'
+    
+    if current_map[hero_x][hero_y] == "☔":
+        for item in inventory:
+            for i in item:
+                if i == "☔":
+                    inventory[i] += 5
+                    current_map[hero_x][hero_y] = '.'
+
+    if current_map[hero_x][hero_y] == "⁕":
+        for item in inventory:
+            for i in item:
+                if i == "⁕":
+                    inventory[i] += 5
+                    current_map[hero_x][hero_y] = '.'
+
+    return inventory, current_map
 
 def print_table(inventory): #displays inventory in a well-organized table
-
+        
 
     print("Inventory: ")
-
-    #sorted_words = sorted(inventory, key=len)
-    #longest_word = sorted_words[-1]                    #Find the maximum value of the all words lengths
-    longest_word2 = max(inventory, key=lambda word: (len(word), word)) #lambda function is a way to create small anonymous functions,
-                                                                        #i.e. functions without a name
-    longest_word = len(longest_word2) #Show the length of the longest word
+              
+    longest_word = max(inventory, key=lambda word: (len(word), word)) 
+                                                                    
+    lenght_of_word = len(longest_word) 
 
 
-    print('{:>7} {:>{width}}'.format("count", "item name" , width=longest_word)) #">" Align to the right
-                                                        #{:>7} - Take the last 7 seats from the right for "count"
-                                                    #later - space, width - The number of letters of the longest word for "item name"
-    print('-' * (longest_word + 8)) #Print "-" as many times as the length of the longest word plus 8
-                                    # 8 = {:>7} + 1 (space)
-
+    print('{:>7} {:>{width}}'.format("count", "item name" , width=lenght_of_word))                                            
+    print('-' * (lenght_of_word + 8)) 
 
     for item in inventory:
-        print('{:>7} {:>{width}}'.format(inventory[item], item , width=longest_word))
+        print('{:>7} {:>{width}}'.format(inventory[item], item , width=lenght_of_word))
 
 
 def main():
     hero_x=10
     hero_y=10
-    inventory = {"coffee": 0, "umbrella":0, }
-    added_items = []
-    mapa = open_file(hero_x, hero_y)
-
-
+    inventory = {"☕": 100, "☔":0, "⓵":0, "☎":0, "⁕":0 }
+    mapa, current_map = open_file(hero_x,hero_y)
+    mapa_copy = mapa[:]
 
     while True:
 
+        current_mapa = open_file(hero_x,hero_y)
         os.system('clear')
-        print_board(mapa)
-        inventory = add_to_inventory(inventory, added_items)
+        print_board_and_hero(current_map,hero_x,hero_y)
+        add_to_inventory(inventory, hero_x, hero_y, current_map)
         print_table(inventory)
-        hero_x, hero_y, mapa = movement(hero_x,hero_y,mapa)
+        hero_x, hero_y, current_map, inventory = movement(hero_x,hero_y, current_map, inventory)
         old_map=mapa
-        mapa = open_file(hero_x, hero_y)
+        current_mapa = open_current_map(hero_x, hero_y,current_map,mapa)
 
 
 if __name__ == '__main__':
