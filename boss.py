@@ -1,14 +1,15 @@
 import os
 import sys, tty, termios
 import csv
+import hot_cold
 
 
-def open_file(hero_x,hero_y):
+def first_level(hero_x,hero_y):
 
 
     column = []
     mapa = []
-    text = open('secondmap.txt').readlines()
+    text = open('firstmap.txt').readlines()
     for line in text:
         for char in line:
             column.append(char)
@@ -26,8 +27,37 @@ def open_current_map(hero_x, hero_y, current_map,mapa):
     return current_map
 
 
-def write_current_map(current_map):
-    return
+def second_level(current_map,hero_x,hero_y):
+    if current_map[hero_x][hero_y] == "2":
+        column = []
+        mapa = []
+        text = open("secondmap.txt").readlines()
+        for line in text:
+           for char in line:
+               column.append(char)
+           mapa.append(column)
+           column = []
+        hero_x = 15
+        hero_y = 2
+        current_map = mapa
+    return current_map, hero_x, hero_y
+
+
+def third_level(current_map,hero_x,hero_y):
+    if current_map[hero_x][hero_y] == "3":
+        column = []
+        mapa = []
+        text = open("thirdmap.txt").readlines()
+        for line in text:
+            for char in line:
+                column.append(char)
+            mapa.append(column)
+            column = []
+        hero_x = 22
+        hero_y = 2
+
+        current_map = mapa
+    return current_map, hero_x, hero_y
 
 
 def movement(hero_x,hero_y,current_map, inventory):
@@ -119,7 +149,7 @@ pink='\033[95m'
 lightcyan='\033[96m'
 
 sign_colours = {"s": green, "S": green, "w":orange, "W":orange, "o": blue, "☔": yellow, "☕": lightred,
-                "⓵": yellow,"☎": lightgreen, "⁕": pink, "▣": black}
+                "⓵": yellow,"☎": lightgreen, "⁕": pink, "▣": black, "~": blue}
 
 def get_coloured_sign(sign):
     """Function returns coloured sign"""
@@ -183,6 +213,7 @@ def add_to_inventory(inventory, hero_x, hero_y, current_map):
                     inventory[i] += 5
                     current_map[hero_x][hero_y] = '.'
 
+
     return inventory, current_map
 
          
@@ -203,25 +234,84 @@ def print_table(inventory): #displays inventory in a well-organized table
     for item in inventory:
         print('{:>7} {:>{width}}'.format(inventory[item], item , width=lenght_of_word))
 
+def open_gate(hero_x, hero_y, current_map):
+    if current_map[hero_x][hero_y] == "Z":
+        for x, row in enumerate(current_map):
+            for y, sign in enumerate(row):
+                if current_map[x][y] == "Q":
+           
+                    current_map[x][y] ="."
+        return current_map
+
+def game_over(current_map):
+    
+    column = []
+    mapa = []
+    text = open('Game_Over.txt').readlines()
+    for line in text:
+        for char in line:
+            column.append(char)
+        mapa.append(column)
+        column = []
+    current_map = mapa
+    ans = ['y','Y','N','n']
+    yn = getch()
+    loop = True
+
+    return current_map
+
+def boss(current_map):
+    column = []
+    mapa = []
+    text = open("bosss.txt").readlines()
+    for line in text:
+        for char in line:
+            column.append(char)
+        mapa.append(column)
+        column = []
+  
+    current_map = mapa
+    return current_map
+
+
+def play_again():
+    play_again = input("\nDo you want to ply again ?: Y/N").lower()
+    play = 0
+    if play_again == 'y':
+        os.system("clear")
+    else:
+        sys.exit()
+
 
 def main():
-
-    hero_x=10
-    hero_y=10
-    inventory = {"☕": 100, "☔":0, "⓵":0, "☎":0, "⁕":0 }
-    mapa, current_map = open_file(hero_x,hero_y)
-    mapa_copy = mapa[:]
-
     while True:
+        hero_x=10
+        hero_y=10
+        inventory = {"☕": 100, "☔":0, "⓵":0, "☎":0, "⁕":0 }
+        mapa, current_map = first_level(hero_x,hero_y)
 
-        current_mapa = open_file(hero_x,hero_y)
-        os.system('clear')
-        print_board_and_hero(current_map,hero_x,hero_y)
-        add_to_inventory(inventory, hero_x, hero_y, current_map)
-        print_table(inventory)
-        hero_x, hero_y, current_map, inventory = movement(hero_x,hero_y, current_map, inventory)
-        old_map=mapa
-        current_mapa = open_current_map(hero_x, hero_y,current_map,mapa)
+        while True:
+            #os.system('clear')
+            current_map, hero_x, hero_y = second_level(current_map, hero_x,hero_y)
+            current_map, hero_x, hero_y = third_level(current_map,hero_x,hero_y)
+            print_board_and_hero(current_map,hero_x,hero_y)
+            open_gate(hero_x, hero_y, current_map)
+            add_to_inventory(inventory, hero_x, hero_y, current_map)
+            print_table(inventory)
+            hero_x, hero_y, current_map, inventory = movement(hero_x,hero_y, current_map, inventory)
+            #boss(inventory)
+            print(inventory)
+            if inventory["☕"] == 0:
+                current_map =game_over(current_map)
+                print_board_and_hero(current_map,hero_x,hero_y)
+                break            
+
+            if inventory["⓵"] == 30:
+                os.system('clear')
+                current_map = boss(current_map)
+                print_board_and_hero(current_map,hero_x,hero_y)
+                hot_cold.main()
+        play_again() 
 
 
 if __name__ == '__main__':
