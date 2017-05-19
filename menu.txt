@@ -1,0 +1,25 @@
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+x                                                         x
+x                                                         x
+x                                                         x
+x                                                         x
+x                                                         x
+x             |\  /|      |  |   |'   |                   x
+x             | \/ |\  /  |--|/~\||/~~|/~~|\  /.          x
+x             |    | \/   |  |\_/||\__|\__| \/            x
+x                   _/                     _/             x
+x                                                         x
+x                                                         x
+x	           Press Y to continue                    x
+x                                                         x
+x                                                         x
+x                                                         x
+x          Collect items, answer questions.               x
+x          Let the hero get to the last board             x
+x                                                         x
+x                          move                           x
+x               w - move up, s - move down                x
+x              a - more left, d - move right              x
+x                		                          x
+x                                                         x
+Xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
