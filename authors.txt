@@ -10,9 +10,9 @@ x  | (   ) || |   | |   | |   | |   | || (\ (         ) |   x
 x  | )   ( || (___) |   | |   | (___) || ) \ \__/\____) |   x
 x  |/     \|(_______)   )_(   (_______)|/   \__/\_______)   x
 x                                                           x
-x                                                           x
-x                                                           x
-x                                                           x
+x                  Kinga Ozimirska                          x
+x                  Mateusz Korga                            x
+x                  Mateusz Koclega                          x
 x                                                           x
 x                                                           x
 x                                                           x
