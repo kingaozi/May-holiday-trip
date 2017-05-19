@@ -33,7 +33,8 @@ def guess_number(numbers, level):
             
             if level ==0:
                 print("\nYou are lose!")
-        play_again()
+        break
+    
 
 def play_again():
     play_again = input("\nDo you want to ply again ?: Y/N").lower()
@@ -42,14 +43,16 @@ def play_again():
         os.system("clear")
     else:
         sys.exit()
+    
             
 
 
 
 def main():
-    input_random = input("Enter a number: ")
-    level = difficulty()
+    
     while True:
+        input_random = input("Enter a number: ")
+        level = difficulty()
         start_time = time.time()
         numbers = list(input_random)
         guess_number(numbers, level)
