@@ -1,38 +1,18 @@
-{\rtf1\ansi\ansicpg1250\cocoartf1504\cocoasubrtf810
-{\fonttbl\f0\fmodern\fcharset0 Courier;}
-{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red255\green255\blue255;\red109\green109\blue109;
-\red0\green0\blue0;}
-{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;\cssrgb\c100000\c100000\c100000;\cssrgb\c50196\c50196\c50196;
-\cssrgb\c0\c0\c0;}
-\paperw11900\paperh16840\margl1440\margr1440\vieww13340\viewh7820\viewkind0
-\deftab720
-
-\itap1\trowd \taflags0 \trgaph108\trleft-108 \trcbpat3 \trwWidth15680\trftsWidth3 \trbrdrt\brdrnil \trbrdrl\brdrnil \trbrdrt\brdrnil \trbrdrr\brdrnil 
-\clvertalc \clshdrawnil \clwWidth15560\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx8640
-\pard\intbl\itap1\pardeftab720\sl280\partightenfactor0
-
-\f0\fs24 \cf2 \expnd0\expndtw0\kerning0
-\outl0\strokewidth0 \strokec2 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\
-x                                                                                x\
-\pard\intbl\itap1\pardeftab720\sl280\partightenfactor0
-\cf5 \outl0\strokewidth0 x                                                                                x\
-\pard\intbl\itap1\pardeftab720\sl280\partightenfactor0
-\cf5 x                                                                                x\cf2 \outl0\strokewidth0 \strokec2 \
-\pard\intbl\itap1\pardeftab720\sl280\partightenfactor0
-\cf2 x    _______  _______  _______  _______    _______           _______  _______    x\
-x   (  ____ \\(  ___  )(       )(  ____ \\  (  ___  )|\\     /|(  ____ \\(  ____ )   x\
-x   | (    \\/| (   ) || () () || (    \\/  | (   ) || )   ( || (    \\/| (    )|   x\
-x   | |      | (___) || || || || (__      | |   | || |   | || (__    | (____)|   x\
-x   | | ____ |  ___  || |(_)| ||  __)     | |   | |( (   ) )|  __)   |     __)   x\
-x   | | \\_  )| (   ) || |   | || (        | |   | | \\ \\_/ / | (      | (\\ (      x\
-x   | (___) || )   ( || )   ( || (____/\\  | (___) |  \\   /  | (____/\\| ) \\ \\__   x\
-x   (_______)|/     \\||/     \\|(_______/  (_______)   \\_/   (_______/|/   \\__/   x\
-x                                                                                x\
-\pard\intbl\itap1\pardeftab720\sl280\partightenfactor0
-\cf5 \outl0\strokewidth0 x                                                                                x\
-x                                                                                x\cf2 \outl0\strokewidth0 \strokec2 \
-\pard\intbl\itap1\pardeftab720\sl280\partightenfactor0
-\cf2 x                            Do you want play again?                             x\
-x                           press Y - Yes, press N - No                          x\cell \lastrow\row
-\pard\pardeftab720\sl280\partightenfactor0
-\cf5 \outl0\strokewidth0 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx}
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+x                                                                                x
+x                                                                                x
+x                                                                                x
+x    _______  _______  _______  _______    _______           _______  _______    x
+x   (  ____ \(  ___  )(       )(  ____ \  (  ___  )|\     /|(  ____ \(  ____ )   x
+x   | (    \/| (   ) || () () || (    \/  | (   ) || )   ( || (    \/| (    )|   x
+x   | |      | (___) || || || || (__      | |   | || |   | || (__    | (____)|   x
+x   | | ____ |  ___  || |(_)| ||  __)     | |   | |( (   ) )|  __)   |     __)   x
+x   | | \_  )| (   ) || |   | || (        | |   | | \ \_/ / | (      | (\ (      x
+x   | (___) || )   ( || )   ( || (____/\  | (___) |  \   /  | (____/\| ) \ \__   x
+x   (_______)|/     \||/     \|(_______/  (_______)   \_/   (_______/|/   \__/   x
+x                                                                                x
+x                                                                                x
+x                                                                                x
+x                            Do you want play again?                             x
+x                           press Y - Yes, press N - No                          x
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
