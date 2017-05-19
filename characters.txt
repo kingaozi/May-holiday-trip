@@ -1,26 +1,26 @@
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-x 												                                 x
-x  												                                 x
-x  				                            	        				   x
-x  												                                 x
-x  		                Select characters  	        			   x
-x  				              				                           x
-x  				              %  - press 1						           x
-x  				                                                 x
+x                                                          x
+x                                                          x
+x                                                          x
+x                                                          x
+x                    Select characters                     x
+x                                                          x
+x                       %  - press 1                       x
+x                                                          x
 x                       &  - press 2                       x
+x                                                          x
+x                       $  - press 3                       x
 x  												                                 x
-x  											$  - press 3	                     x
-x  												                                 x
-x  												                                 x
-x  												                                 x
-x  												                                 x
-x  												                                 x
-x  												                                 x
-x  												                                 x
-x  												                                 x
-x  												                                 x
-x  												                                 x
-x  												                                 x
-x  												                                 x
-x  												                                 x
+x                                                          x
+x                                                          x
+x                                                          x
+x                                                          x
+x                                                          x
+x                                                          x
+x                                                          x
+x                                                          x
+x                                                          x
+x                                                          x
+x                                                          x
+x                                                          x
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
